@@ -4,31 +4,29 @@ import "boxicons";
 import "./assets/css/App.css";
 import "./assets/css/main.css";
 import "./assets/css/media.css";
+// core styles are required for all packages
 import "bootstrap/dist/js/bootstrap.js";
+import '@mantine/core/styles.css';
 import LoginPage from "./pages/loginPage";
 import NotFound from "./pages/notFound";
 import Layout from "./layouts/layout";
 import Dashboard from "./pages/dashboard";
+import ProtectedRoute from "./routes/ProtectedRoute";
+
 
 function App() {
-  const isLoggedIn = true
   return (
     <>
-      {
-        isLoggedIn &&
-        <Routes>
+
+      <Routes>
+        <Route path="/login" element={<LoginPage />}></Route>
+        <Route path="/" element={<ProtectedRoute />}>
           <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />}></Route>
             <Route path="*" element={<NotFound />}></Route>
           </Route>
-        </Routes>
-      }
-      {
-        !isLoggedIn && <Routes>
-          <Route path="/" element={<h1>Sayt qurilmoqda...</h1>}></Route>
-          <Route path="/login" element={<LoginPage />}></Route>
-        </Routes>
-      }
+        </Route>
+      </Routes>
 
 
     </>

@@ -1,12 +1,14 @@
 import React from "react";
 import Logo from "../assets/images/logo.png"
+import { Link } from "react-router";
 
 const Nav = () => {
+
   return (
     <>
       <nav class="sidebar close">
         <header>
-          <a href="/" class="image-text">
+          <Link to="/" class="image-text">
             <span class="image">
               <img width="80" src={Logo} alt="logo" />
             </span>
@@ -14,7 +16,7 @@ const Nav = () => {
               <span class="name">LMS</span>
               <span class="profession">By Abbos</span>
             </div>
-          </a>
+          </Link>
 
           <i class='bx bxs-chevron-right toggle'></i>
         </header>
@@ -27,37 +29,37 @@ const Nav = () => {
                 <input type="search" placeholder="Search..." />
               </li>
               <li class="nav-link">
-                <a href="/">
+                <Link to="/">
                   <i class='bx bx-home-alt icon'></i>
                   <span class="text nav-text">Dashboard</span>
-                </a>
+                </Link>
               </li>
               <li class="nav-link">
-                <a href="/">
+                <Link to="/users">
                   <i class='bx bx-user icon'></i>
                   <span class="text nav-text">Users</span>
-                </a>
+                </Link>
               </li>
               <li class="nav-link">
-                <a href="/">
+                <Link to="/modules">
                   <i class='bx bx-book-alt icon'></i>
                   <span class="text nav-text">Modules</span>
-                </a>
+                </Link>
               </li>
               <li class="nav-link">
-                <a href="/">
+                <Link to="/lessons">
                   <i class='bx bx-check-square icon'></i>
                   <span class="text nav-text">Lessons</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
           <div class="bottom-content">
             <li class="">
-              <a href="#">
+              <Link to="#">
                 <i class='bx bx-log-out icon'></i>
                 <span class="text nav-text">Log out</span>
-              </a>
+              </Link>
             </li>
 
             <li class="mode">

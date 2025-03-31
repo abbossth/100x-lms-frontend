@@ -1,3 +1,19 @@
 .show-aside {
     transform: translate(0);
 }
+
+html,
+body,
+#root {
+    height: 100%;
+    overflow: visible;
+}
+
+/* Force Mantine notification container to stay fixed on screen */
+.mantine-Notifications-root {
+    position: fixed !important;
+    top: 1rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 9999 !important;
+}
