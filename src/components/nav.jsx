@@ -1,8 +1,21 @@
 import React from "react";
 import Logo from "../assets/images/logo.png"
 import { Link } from "react-router";
+import { useDispatch } from "react-redux";
+import { logout } from "../data/slices/authSlice";
 
 const Nav = () => {
+  const dispatch = useDispatch()
+
+
+  const handleLogOut = () => {
+    const confirmLogOut = confirm("Haqiqatdan ham tizimdan chiqmoqchimisiz?")
+    alert(confirmLogOut)
+    if (confirmLogOut) {
+      dispatch(logout())
+    }
+  }
+
 
   return (
     <>
@@ -56,10 +69,10 @@ const Nav = () => {
           </div>
           <div class="bottom-content">
             <li class="">
-              <Link to="#">
+              <div onClick={handleLogOut}>
                 <i class='bx bx-log-out icon'></i>
                 <span class="text nav-text">Log out</span>
-              </Link>
+              </div>
             </li>
 
             <li class="mode">
