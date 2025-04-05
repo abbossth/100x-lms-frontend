@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router";
+import "bootstrap/dist/js/bootstrap.js";
 import "bootstrap/dist/css/bootstrap.css";
+import '@mantine/core/styles.css';
 import "boxicons";
 import "./assets/css/App.css";
 import "./assets/css/main.css";
 import "./assets/css/media.css";
 // core styles are required for all packages
-import "bootstrap/dist/js/bootstrap.js";
-import '@mantine/core/styles.css';
 import LoginPage from "./pages/loginPage";
 import NotFound from "./pages/notFound";
 import Layout from "./layouts/layout";

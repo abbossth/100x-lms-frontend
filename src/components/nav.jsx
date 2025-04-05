@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../assets/images/logo.png"
 import { Link } from "react-router";
 import { useDispatch } from "react-redux";
@@ -6,7 +6,7 @@ import { logout } from "../data/slices/authSlice";
 
 const Nav = () => {
   const dispatch = useDispatch()
-
+  const [darkMode, setDarkMode] = useState(false)
 
   const handleLogOut = () => {
     const confirmLogOut = confirm("Haqiqatdan ham tizimdan chiqmoqchimisiz?")
@@ -15,6 +15,24 @@ const Nav = () => {
       dispatch(logout())
     }
   }
+  // handle mode change
+  const handleModeChange = () => {
+    setDarkMode(!darkMode)
+  }
+
+  // handle toggle sidebar click
+  const handleToggleClick = () => {
+    document.querySelector(".sidebar").classList.toggle("close")
+  }
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark")
+    } else {
+      document.body.classList.remove("dark")
+
+    }
+  }, [darkMode])
 
 
   return (
@@ -31,7 +49,7 @@ const Nav = () => {
             </div>
           </Link>
 
-          <i class='bx bxs-chevron-right toggle'></i>
+          <i onClick={handleToggleClick} class='bx bxs-chevron-right toggle'></i>
         </header>
 
         <div class="menu-bar">
@@ -75,7 +93,7 @@ const Nav = () => {
               </div>
             </li>
 
-            <li class="mode">
+            <li class="mode" onClick={handleModeChange} >
               <div class="moon-sun">
                 <i class='bx bx-moon icon moon'></i>
                 <i class='bx bx-sun icon sun'></i>
